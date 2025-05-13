@@ -3,37 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Smiski Customizer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
-        .smiski-container {
-            margin: 20px auto;
-            width: 300px;
-            height: 400px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .controls {
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
     <h1>Customize Your Smiski</h1>
     <div class="smiski-container">
-        <p>Your Smiski will appear here</p>
+        <div class="side-buttons">
+            <button id="prev"></button>
+            <button id="next"></button>
+        </div>
+        <div class="hat-side-buttons">
+            <button id="prev_hat"></button>
+            <button id="next_hat"></button>
+        </div>
+        <img id="smiski" src="components/smiskis/smiski_1.PNG" alt="Smiski">
+        <img id="hat" src="components/hats/beret.PNG" alt="Hat">
     </div>
     <div class="controls">
-        <button>Change Outfit</button>
-        <button>Change Color</button>
+        <button onclick="randomOutfit()">Random Outfit</button>
+        <button onclick="changeColor()">Change Color</button>
     </div>
+
+    <script src="myScript.js"></script>
 </body>
 </html>
