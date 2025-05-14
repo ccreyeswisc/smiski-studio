@@ -11,10 +11,15 @@ const hatImages = [
     "components/hats/top_hat.PNG"
 ]
 
+const bgImages = [
+    "components/backgrounds/bedroom.PNG"
+]
+
 let currentIndex = 0;
 let currHatIndex = 0
 const smiski = document.getElementById("smiski");
 const hat = document.getElementById("hat")
+const bg = document.getElementById("background")
 
 // toggle between smiski's
 document.getElementById("prev").addEventListener("click", () => {
@@ -58,6 +63,17 @@ document.getElementById("next_hat").addEventListener("click", () => {
     }
 });
 
+// toggle between backgrounds
+document.getElementById("prev_bg").addEventListener("click", () => {
+    currBGIndex = (currBGIndex - 1 + bgImages.length) % bgImages.length;
+    bg.src = bgImages[currBGIndex];
+});
+
+document.getElementById("next_bg").addEventListener("click", () => {
+    currBGIndex = (currBGIndex + 1) % bgImages.length;
+    bg.src = bgImages[currBGIndex];
+});
+
 function randomOutfit() {
     const hat_index = Math.floor(Math.random() * hatImages.length);
     const smiski_index = Math.floor(Math.random() * smiskiImages.length);
@@ -78,7 +94,26 @@ function randomOutfit() {
     }
 }
 
-function changeColor() {
-    // Add logic to tint/change the Smiski's color
-    alert("Color change logic goes here!");
+function saveImg() {
+    const container = document.querySelector(".smiski-container");
+
+    // Ask the user for a filename
+    const filename = prompt("Enter a name for your Smiski image:", "my_smiski");
+
+    // If the user cancels or enters an empty string, abort
+    if (!filename) {
+        return;
+    }
+
+    // captures everything inside .smiski-container exactly as it appears and download it as an image
+    html2canvas(container, {
+        useCORS: true
+    }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `${filename}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+    }).catch(err => {
+        console.error("Failed to capture canvas:", err);
+    });
 }

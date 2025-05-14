@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Smiski Customizer</title>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <h1>Customize Your Smiski</h1>
@@ -17,12 +19,17 @@
             <button id="prev_hat"></button>
             <button id="next_hat"></button>
         </div>
+        <div class="bg-side-buttons">
+            <button id="prev_bg"></button>
+            <button id="next_bg"></button>
+        </div>
         <img id="smiski" src="components/smiskis/smiski_1.PNG" alt="Smiski">
         <img id="hat" src="components/hats/beret.PNG" alt="Hat">
+        <img id="background" src="components/backgrounds/bedroom.PNG" alt="Bedroom">
     </div>
     <div class="controls">
         <button onclick="randomOutfit()">Random Outfit</button>
-        <button onclick="changeColor()">Change Color</button>
+        <button onclick="saveImg()">Save Image</button>
     </div>
 
     <script src="myScript.js"></script>
