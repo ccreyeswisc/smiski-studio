@@ -11,5 +11,5 @@ the exact design is unknown until the box is opened. Smiski often feature whimsi
 This project is also dedicated to one of my closest friends, Jess 🪻
 
 ## Tech Stack
-Frontend: HTML, CSS, and JavaScript
-Backend: TBD (Python maybe?)
+- Frontend: HTML, CSS, and JavaScript
+- Backend: TBD (Python maybe?)
