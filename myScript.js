@@ -1,7 +1,8 @@
 const smiskiImages = [
     "components/smiskis/smiski_1.PNG",
     "components/smiskis/smiski_2.PNG",
-    "components/smiskis/smiski_3.PNG"
+    "components/smiskis/smiski_3.PNG",
+    "components/smiskis/smiski_4.PNG"
 ];
 
 const hatImages = [
@@ -12,11 +13,14 @@ const hatImages = [
 ]
 
 const bgImages = [
-    "components/backgrounds/bedroom.PNG"
+    "components/backgrounds/bedroom.PNG",
+    "components/backgrounds/forest.PNG",
+    "components/backgrounds/pond.PNG"
 ]
 
 let currentIndex = 0;
-let currHatIndex = 0
+let currHatIndex = 0;
+let currBGIndex = 0;
 const smiski = document.getElementById("smiski");
 const hat = document.getElementById("hat")
 const bg = document.getElementById("background")
@@ -25,7 +29,7 @@ const bg = document.getElementById("background")
 document.getElementById("prev").addEventListener("click", () => {
     currentIndex = (currentIndex - 1 + smiskiImages.length) % smiskiImages.length;
     smiski.src = smiskiImages[currentIndex];
-    if (currentIndex == 2) {
+    if (currentIndex == 2 || currentIndex == 3) {
         smiski.style.transform = "scale(1.3) translateY(100px) translateX(10px)";
     } else {
         smiski.style.transform = "scale(1.1) translateY(100px)";
@@ -35,7 +39,7 @@ document.getElementById("prev").addEventListener("click", () => {
 document.getElementById("next").addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % smiskiImages.length;
     smiski.src = smiskiImages[currentIndex];
-    if (currentIndex == 2) {
+    if (currentIndex == 2 || currentIndex == 3) {
         smiski.style.transform = "scale(1.3) translateY(100px) translateX(10px)";
     } else {
         smiski.style.transform = "scale(1.1) translateY(100px)";
@@ -67,19 +71,23 @@ document.getElementById("next_hat").addEventListener("click", () => {
 document.getElementById("prev_bg").addEventListener("click", () => {
     currBGIndex = (currBGIndex - 1 + bgImages.length) % bgImages.length;
     bg.src = bgImages[currBGIndex];
+    console.log(currBGIndex)
 });
 
 document.getElementById("next_bg").addEventListener("click", () => {
     currBGIndex = (currBGIndex + 1) % bgImages.length;
     bg.src = bgImages[currBGIndex];
+    console.log(currBGIndex)
 });
 
 function randomOutfit() {
     const hat_index = Math.floor(Math.random() * hatImages.length);
     const smiski_index = Math.floor(Math.random() * smiskiImages.length);
+    const bg_index = Math.floor(Math.random() * bgImages.length);
 
     hat.src = hatImages[hat_index];
     smiski.src = smiskiImages[smiski_index];
+    bg.src = bgImages[bg_index];
 
     if (hat_index ==  0) {
         hat.style.transform = "scale(1.1) translateY(90px)";
@@ -87,7 +95,7 @@ function randomOutfit() {
         hat.style.transform = "scale(1.1) translateY(80px)";
     }
 
-    if (smiski_index == 2) {
+    if (smiski_index == 2 || smiski_index == 3) {
         smiski.style.transform = "scale(1.3) translateY(100px) translateX(10px)";
     } else {
         smiski.style.transform = "scale(1.1) translateY(100px)";
